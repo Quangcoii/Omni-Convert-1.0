@@ -1,0 +1,17 @@
+import { convertCase, cleanText, diffLines } from '../lib/text-tools.ts';
+import { computeTextStats } from '../lib/text-stats.ts';
+import assert from 'node:assert/strict';
+assert.equal(convertCase('hello wORLD', 'title'), 'Hello World');
+assert.equal(convertCase('hello world. how are you? fine', 'sentence'), 'Hello world. How are you? Fine');
+assert.equal(convertCase('Hello big World', 'camel'), 'helloBigWorld');
+assert.equal(convertCase('Hello big World', 'snake'), 'hello_big_world');
+assert.equal(convertCase('Hello big World', 'kebab'), 'hello-big-world');
+assert.equal(convertCase("don't stop", 'title'), "Don't Stop");
+assert.equal(cleanText('  a   b \n\n a   b \nc', {trimLines:true,collapseSpaces:true,removeBlankLines:true,removeDuplicateLines:true}), 'a b\nc');
+const d = diffLines('a\nb\nc','a\nx\nc')!;
+assert.deepEqual(d.map(l=>l.type+':'+l.text), ['same:a','del:b','add:x','same:c']);
+assert.equal(diffLines('a\n'.repeat(3000), 'b\n'.repeat(3000)), null);
+const s = computeTextStats('Hello world. This is a test!\n\nNew paragraph');
+assert.equal(s.words, 8); assert.equal(s.sentences, 3); assert.equal(s.paragraphs, 2);
+assert.equal(computeTextStats('').words, 0);
+console.log('ALL PASS');

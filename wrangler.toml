@@ -1,0 +1,10 @@
+name = "omni-convert"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "out"
+
+# Replace database_id with the id printed by: npx wrangler d1 create omni-convert-db
+[[d1_databases]]
+binding = "DB"
+database_name = "omni-convert-db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+migrations_dir = "migrations"

@@ -1,0 +1,28 @@
+{
+  "name": "omni-convert",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "tsc --noEmit && tsc -p functions/tsconfig.json",
+    "cf:dev": "next build && wrangler pages dev out --d1=DB",
+    "cf:deploy": "next build && wrangler pages deploy out",
+    "db:migrate:local": "wrangler d1 migrations apply omni-convert-db --local",
+    "db:migrate:remote": "wrangler d1 migrations apply omni-convert-db --remote",
+    "test": "node --experimental-strip-types --test \"tests/*.test.mts\""
+  },
+  "dependencies": {
+    "next": "15.1.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "typescript": "5.7.2",
+    "@types/node": "22.10.2",
+    "@types/react": "19.0.2",
+    "@types/react-dom": "19.0.2",
+    "wrangler": "3.99.0",
+    "@cloudflare/workers-types": "4.20241218.0"
+  }
+}
