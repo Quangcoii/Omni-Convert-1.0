@@ -6,5 +6,5 @@ pages_build_output_dir = "out"
 [[d1_databases]]
 binding = "DB"
 database_name = "omni-convert-db"
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"
+database_id = "5b1a9da3-e716-46dd-b1e3-366531c17c6c"
 migrations_dir = "migrations"
