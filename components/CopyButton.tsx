@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-export default function CopyButton({ text, onCopied }: { text: string; onCopied?: () => void }) {
+export default function CopyButton({ text, onCopied, label = 'Copy result' }: { text: string; onCopied?: () => void; label?: string }) {
   const [state, setState] = useState<'idle' | 'ok' | 'error'>('idle');
   async function copy() {
     try { await navigator.clipboard.writeText(text); setState('ok'); onCopied?.(); }
@@ -8,5 +8,5 @@ export default function CopyButton({ text, onCopied }: { text: string; onCopied?
     setTimeout(() => setState('idle'), 2000);
   }
   return (<button type="button" className="btn" onClick={copy} disabled={!text} aria-live="polite">
-    {state === 'ok' ? 'Copied!' : state === 'error' ? 'Copy failed' : 'Copy result'}</button>);
+    {state === 'ok' ? 'Copied!' : state === 'error' ? 'Copy failed' : label}</button>);
 }

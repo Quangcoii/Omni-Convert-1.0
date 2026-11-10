@@ -13,3 +13,6 @@ Update PROJECT_STATUS, FEATURE_MATRIX, FILE_INVENTORY (if files changed), CHANGE
 
 ## Ask the user first before
 Destructive ops, major architecture changes, removing features, production infrastructure, recurring costs, sending user files to external servers.
+
+## Resuming work
+Read `project-docs/NEXT_CHAT_PROMPT.md`, `PROJECT_STATUS.md` (done / verified / to do) and `AI_HANDOFF.md` first. Regression harness: `tools/ui-harness/README.md`. Tests: `npm test`.
