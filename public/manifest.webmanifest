@@ -1,0 +1,2 @@
+{ "name": "OMNI CONVERT", "short_name": "OMNI CONVERT", "description": "Your Everyday Tools, All in One Place.", "start_url": "/", "display": "browser", "background_color": "#FAFAF7", "theme_color": "#45A878",
+  "icons": [{ "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" }, { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }] }
