@@ -37,3 +37,10 @@ Deployment: not configured (UNKNOWN production target beyond Cloudflare Pages in
 - `lib/site.ts` (SITE_URL, CONTACT_EMAIL, static pages), `components/JsonLd.tsx` (BreadcrumbList).
 - Accessibility rules in CSS: buttons use dark text (`--btn-text`) on brand colors; form labels use primary text (`.field-label`); category headings use primary text.
 - Tests: `tests/*.test.mts` run with Node type-stripping (`npm test`).
+
+## Additions 2026-11-10 (tools pass)
+- Tool pattern: pure logic in `lib/*.ts` (+ tests) -> client component -> `page.tsx` using `<ToolLayout noun=...>`; register in `lib/tools.ts`.
+- File tools use `components/Dropzone.tsx` (validation via `lib/file-engine.ts`, states idle/dragging/processing/completed). Image tools: `components/ImageTool.tsx` (canvas). PDF tools: `components/pdf/PdfWorkbench.tsx` + `lib/pdf-tools.ts` (pdf-lib via dynamic import). Text-file tools: `components/FileTextInput.tsx`.
+- Only runtime dependencies: next, react, react-dom, pdf-lib. Dev: typescript, @types/*, wrangler, @cloudflare/workers-types.
+- Brand: `components/brand/Logo.tsx` (+ generated `wordmark-data.ts`), `components/Mascot.tsx`, `components/Icons.tsx`; exports in `public/brand/`.
+- Dev harness: `tools/ui-harness/` (see its README).

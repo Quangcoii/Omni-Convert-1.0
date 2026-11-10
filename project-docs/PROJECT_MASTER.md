@@ -12,6 +12,7 @@ Slogan: "Your Everyday Tools, All in One Place." International free online file-
 Global: background #FAFAF7, text #28332F, secondary #7C8582, border #EAECE8. One shared design system. Style: modern SaaS, minimal pastel, friendly.
 
 ## Mascots
+(Updated 2026-11-10: the owner supplied reference art; see DECISIONS D-013. Mascots are soft 2D characters with four states, drawn as SVG approximations. The original line-art brief below is superseded where it conflicts.)
 Office=Panda, Image=Shark, Text=Cat, Web&Code=Bug. Minimal 2D line-art, rounded strokes, flat pastel, no 3D. Decorative only, inside the dropzone; must never block selection/drag-drop. Official assets not yet supplied (placeholder in use).
 
 ## Principles

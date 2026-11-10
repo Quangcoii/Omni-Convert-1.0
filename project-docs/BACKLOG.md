@@ -1,19 +1,19 @@
 # BACKLOG
-## Must verify first
-- [ ] `npm install`, `npm run lint` (JSX never type-checked), `npm test`, `npm run build`; confirm pinned versions exist.
-- [ ] Inspect `out/`: canonical, OG, JSON-LD, sitemap.xml, robots.txt, `_headers` copied, 404 page; `[category]` coexisting with `app/<category>/<tool>` routes.
-- [ ] `wrangler pages dev out --d1=DB`: migration, POST /api/events 204/400/403, counts increment.
-- [ ] sendBeacon sends an Origin header in target browsers (else /api/events returns 403).
-- [ ] Next + `allowImportingTsExtensions` not needed (lib files import nothing); keep it that way or update tsconfig.
-## Product gaps
-- [ ] QR Generator (D-011). Image tools, PDF/Office tools, Web Workers (Phase 2/3).
-- [ ] Official mascot assets; consider animation hooks.
-- [ ] Decide secondary text color (D-009).
-- [ ] i18n JA/VI (Phase 4); consent banner if required (D-006); AdSense (Phase 5).
-- [ ] Legal review of Privacy/Terms; set NEXT_PUBLIC_CONTACT_EMAIL; replace placeholder SITE_URL.
-- [ ] Group tools on the homepage by category when the catalog grows; popular-tools logic from D1 data.
-## Quality
-- [ ] Move the Playwright UI checks into the repo (against `next build` output) and add CI.
-- [ ] Rate-limit rule for /api/events; restrict `tool` to real slugs; track tool_error; admin stats view (needs auth).
-- [ ] Sentence counting is heuristic; JSON Formatter loses precision on huge numbers (documented on the page).
-- [ ] Real screen-reader and cross-browser testing; Lighthouse.
+## Must verify first (nothing below has been run with real Next/Cloudflare)
+- [ ] `npm install`, `npm run lint` (JSX never type-checked), `npm test`, `npm run build`; confirm version pins.
+- [ ] Inspect `out/`: canonical, OG, JSON-LD, sitemap.xml (36+ URLs), robots.txt, favicon/manifest/OG files, `_headers`, 404; static `app/<category>/<tool>` routes next to `app/[category]`.
+- [ ] pdf-lib dynamic import works in the Next/webpack build and is code-split.
+- [ ] `wrangler pages dev out --d1=DB`: migration, POST /api/events 204/400/403, counters increment; sendBeacon sends Origin.
+- [ ] Cross-browser: Safari (WebP encoding, createImageBitmap, clipboard), Firefox, real phones; Lighthouse; screen reader pass.
+## Product
+- [ ] PDF to JPG (pdfjs-dist), Compress PDF (honest about limits), Markdown converter, image crop, favicon generator, SVG tools, GIF tools, XML formatter, CSS/JS/HTML minifiers, barcode generator, XLSX tools (library needed).
+- [ ] Web Workers for large files; ZIP download for batches (jszip); stricter memory/time limits.
+- [ ] i18n JA/VI; consent banner if required; AdSense slots; popular tools from D1 data; admin stats view (needs auth + approval).
+- [ ] Official mascot/logo vectors if available; decide D-009 (secondary text colour) and D-015 (gradient headline).
+- [ ] Legal review of Privacy/Terms; set NEXT_PUBLIC_CONTACT_EMAIL and real SITE_URL.
+## Quality / tech debt
+- [ ] Put the UI harness into CI against the real build; Playwright tests in repo pipeline.
+- [ ] Rate-limit rule for /api/events; restrict `tool` slugs server-side; track tool_error with reasons (no filenames).
+- [ ] Sentence counting heuristic; JSON number precision; Merge PDF drops bookmarks; Image tools drop EXIF/ICC.
+- [ ] Repeatable `npm run brand:export` script (currently tools/ui-harness/exportbuild.cjs + raster.cjs).
+- [ ] Header has no EN language selector until i18n exists.
